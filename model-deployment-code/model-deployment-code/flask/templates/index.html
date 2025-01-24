@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification with NASNetLarge CNN Model</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #1f4037, #99f2c8);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+	    margin-botton: 4rem;
+        }
+
+        h2 {
+	    color: #0f3027;
+	    margin-top: 0px;
+	    margin-bottom: 0px;
+        }
+
+        h3 {
+	    color: #1f4037;
+	    font-weight: 300;
+	    margin-top: 4px;
+            margin-bottom: 2rem;
+        }
+
+        .upload-area {
+            border: 2px dashed #1f4037;
+            border-radius: 10px;
+            padding: 1rem;
+            background: #f4f4f4;
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .upload-area.dragover {
+            background: #dff7df;
+            border-color: #00c851;
+        }
+
+        .upload-area p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .file-list li {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-list li.invalid {
+            color: #ff4444;
+        }
+
+        button {
+            background: #1f4037;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background: #00c851;
+        }
+    </style>
+</head>
+<body>
+    <!-- Title Section -->
+    <header style='text-align:center;'>
+        <h2>Image Classification with EfficientNetB0</h2>
+        <h3 class='last'>Convulational Neural Network Project</h3>
+    </header>
+
+    <!-- Upload Form -->
+    <div class="container">
+        <form id="upload-form" method="POST" action="/" enctype="multipart/form-data">
+            <div class="upload-area" id="upload-area">
+                <p>Drag & Drop your images here or click to browse</p>
+                <input type="file" name="image" class="file-input" id="file-input" accept=".jpg, .jpeg, .png" multiple>
+            </div>
+            <ul class="file-list" id="file-list"></ul>
+            <button type="submit" id="submit-button" disabled>Classify</button>
+        </form>
+    </div>
+    <br/><br/><br/>
+    {% if results %}
+        <div class="container">
+            <h3>Classification Results</h3>
+            <ul class="file-list">
+                {% for result in results %}
+                    <li>
+                        <strong>{{ result.filename }}</strong>: {{ result.class }} 
+                        (Confidence: {{ result.confidence | round(2) }})
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}    
+    <br/><br/><br/>
+
+    <script>
+        const uploadArea = document.getElementById('upload-area');
+        const fileInput = document.getElementById('file-input');
+        const fileList = document.getElementById('file-list');
+        const submitButton = document.getElementById('submit-button');
+        const maxFiles = 10;
+
+        // Drag-and-drop event listeners
+        uploadArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(event.dataTransfer.files);
+            handleFiles(files);
+        });
+
+        // Open file picker on click
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', () => {
+            const files = Array.from(fileInput.files);
+            handleFiles(files);
+        });
+
+        // Handle files and validate them
+        function handleFiles(files) {
+            const currentFiles = Array.from(fileInput.files); // Archivos ya seleccionados
+            const allFiles = [...currentFiles, ...files]; // Combinar nuevos y existentes
+
+            fileList.innerHTML = ''; // Limpiar la lista visible
+            const validFiles = []; // Archivos válidos
+
+            allFiles.forEach((file) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = file.name;
+
+                if (!file.type.match('image/(png|jpeg)')) {
+                    listItem.classList.add('invalid');
+                    listItem.textContent += ' - Invalid file type';
+                } else if (validFiles.length >= maxFiles) {
+                    listItem.classList.add('invalid');
+                    listItem.textContent += ' - Maximum files reached';
+                } else {
+                    validFiles.push(file); // Agregar archivo válido
+                    // listItem.textContent += ' - Valid';
+                }
+
+                fileList.appendChild(listItem);
+            });
+
+            // Crear un nuevo objeto DataTransfer con los archivos válidos
+            const dataTransfer = new DataTransfer();
+            validFiles.forEach((file) => dataTransfer.items.add(file));
+            fileInput.files = dataTransfer.files;
+
+            console.log(fileInput.files)
+
+            // Habilitar o deshabilitar el botón de envío
+            submitButton.disabled = validFiles.length === 0;
+        }
+
+    </script>
+</body>
+</html>
