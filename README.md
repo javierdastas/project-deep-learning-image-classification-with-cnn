@@ -53,6 +53,7 @@ This is the Pytorch version.
 
 ### **Part 6: Model Deployment**
 - Our 18-layer CNN model metrics are better ([see the notebook](cnn-group-model.ipynb)).
-- The model selected for deployment was out 18-layer CNN model.
+- The model selected for deployment was our 18-layer CNN model.
 - Configure and set the Web Service Model Image Classification based on Flask and TensorFlow implementation.
     - [Image Classification Using 18-layer Convolutional Neural Networks](http://dl-image-cnn.org)
+- Project Web Service implementation files are [here](https://github.com/javierdastas/project-deep-learning-image-classification-with-cnn/tree/main/service-model-deployment-code)
