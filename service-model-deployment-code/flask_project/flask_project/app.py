@@ -91,15 +91,14 @@ def index():
 
     return render_template("index.html")
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 # Custom error handler for file size limits
 @app.errorhandler(413)
 def request_entity_too_large(error):
     return render_template("index.html", error="File size exceeds the maximum allowed size of 16 MB.")
-
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
 # Run the Flask application
 if __name__ == "__main__":
