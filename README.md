@@ -8,7 +8,7 @@ Build a Convolutional Neural Network (CNN) model to classify images from a given
 Kaggle - Animals10: The second dataset contains about 28,000 medium quality animal images belonging to 10 categories: dog, cat, horse, spyder, butterfly, chicken, sheep, cow, squirrel, elephant. The link is [here](https://www.kaggle.com/datasets/alessiocorrado99/animals10/data).
 
 ## Presentation
-![Deep Learning: Image Classification with CNN](https://www.kaggle.com/datasets/alessiocorrado99/animals10/data)
+[Deep Learning: Image Classification with CNN](https://www.kaggle.com/datasets/alessiocorrado99/animals10/data)
 
 ## Assessment Components
 
@@ -18,7 +18,7 @@ Kaggle - Animals10: The second dataset contains about 28,000 medium quality anim
 
 ### **Part 2: Model Architecture**
    - Design a CNN architecture suitable for image classification.
-     ![18-layer CNN Model Architecture](https://github.com/javierdastas/project-deep-learning-image-classification-with-cnn/blob/main/my-cnn-model.png)
+     [18-layer CNN Model Architecture](https://github.com/javierdastas/project-deep-learning-image-classification-with-cnn/blob/main/my-cnn-model.png)
    - Include convolutional layers, pooling layers, and fully connected layers.
 
 ### **Part 3: Model Training**
@@ -51,7 +51,8 @@ This is the Pytorch version.
 #### ***Analyze the results and select de best model for Deployment
 
 ### **Part 6: Model Deployment**
-- Our 18-layer CNN model metrics are better (see the notebook).
+- Our 18-layer CNN model metrics are better ([see the notebook]()).
 - The model selected for deployment was out 18-layer CNN model.
-- Configure and set the Web Service Model Image Classification (http:dl-image-cnn.org) based on Flask and TensorFlow implementation.
-      ![Image Classification Using 18-layer Convolutional Neural Networks](http:dl-image-cnn.org)
+- Configure and set the Web Service Model Image Classification based on Flask and TensorFlow implementation.
+
+[Image Classification Using 18-layer Convolutional Neural Networks](http://dl-image-cnn.org)
