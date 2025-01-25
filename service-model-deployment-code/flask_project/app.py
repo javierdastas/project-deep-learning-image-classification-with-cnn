@@ -16,8 +16,9 @@ app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # Limit file uploads to 16 
 
 # Load the TensorFlow/Keras model directly
 # MODEL_PATH = "/srv/models/efficient_net_b0_v1.h5"  # Path to your saved model
+
 MODEL_PATH = "/srv/models/my_cnn_model_v1.h5"  # Path to your saved model
-model = tf.keras.models.load_model(MODEL_PATH)
+model = tf.keras.models.load_model(MODEL_PATH) # Load the Model
 
 CLASS_NAMES = ['dog', 'horse', 'elephant', 'butterfly', 'chicken', 'cat', 'cow', 'sheep', 'spider', 'squirrel']
 

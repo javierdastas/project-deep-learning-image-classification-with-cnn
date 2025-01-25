@@ -1,0 +1,7 @@
+Flask
+numpy
+PIL
+io
+logging
+tensorflow
+
