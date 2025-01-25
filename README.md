@@ -11,6 +11,7 @@ Kaggle - Animals10: The second dataset contains about 28,000 medium quality anim
 - [Deep Learning: Image Classification with CNN](DL_Image_Classification_CNN.pdf)
 
 ## Assessment Components
+- All the following steps measures and plots are in the project nootebook ([here](cnn-group-model.ipynb)).
 
 ### **Part 1: Data Preprocessing**
 - Data loading and preprocessing (e.g., normalization, resizing, augmentation).
@@ -38,7 +39,7 @@ This is the Pytorch version.
 
 #### **Define the Model & Freeze the Model Base**
 
-## EfficientNetB0 - TensorFlow Keras implementation
+- Model selected EfficientNetB0 - [Keras Specifications](https://keras.io/api/applications/)
 
 #### **Define the Model: DataSet Preparation (validation and classes balance)**
 
