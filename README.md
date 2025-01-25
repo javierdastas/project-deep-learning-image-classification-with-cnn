@@ -8,18 +8,18 @@ Build a Convolutional Neural Network (CNN) model to classify images from a given
 Kaggle - Animals10: The second dataset contains about 28,000 medium quality animal images belonging to 10 categories: dog, cat, horse, spyder, butterfly, chicken, sheep, cow, squirrel, elephant. The link is [here](https://www.kaggle.com/datasets/alessiocorrado99/animals10/data).
 
 ## Presentation
-[Deep Learning: Image Classification with CNN](https://www.kaggle.com/datasets/alessiocorrado99/animals10/data)
+- [Deep Learning: Image Classification with CNN](DL_Image_Classification_CNN.pdf)
 
 ## Assessment Components
 
 ### **Part 1: Data Preprocessing**
-   - Data loading and preprocessing (e.g., normalization, resizing, augmentation).
-   - Create visualizations of some images, and labels.
+- Data loading and preprocessing (e.g., normalization, resizing, augmentation).
+- Create visualizations of some images, and labels.
 
 ### **Part 2: Model Architecture**
-   - Design a CNN architecture suitable for image classification.
-     [18-layer CNN Model Architecture](https://github.com/javierdastas/project-deep-learning-image-classification-with-cnn/blob/main/my-cnn-model.png)
-   - Include convolutional layers, pooling layers, and fully connected layers.
+- Design a CNN architecture suitable for image classification.
+   - [18-layer CNN Model Architecture](https://github.com/javierdastas/project-deep-learning-image-classification-with-cnn/blob/main/my-cnn-model.png)
+- Include convolutional layers, pooling layers, and fully connected layers.
 
 ### **Part 3: Model Training**
 
@@ -54,5 +54,4 @@ This is the Pytorch version.
 - Our 18-layer CNN model metrics are better ([see the notebook]()).
 - The model selected for deployment was out 18-layer CNN model.
 - Configure and set the Web Service Model Image Classification based on Flask and TensorFlow implementation.
-
-[Image Classification Using 18-layer Convolutional Neural Networks](http://dl-image-cnn.org)
+    - [Image Classification Using 18-layer Convolutional Neural Networks](http://dl-image-cnn.org)
