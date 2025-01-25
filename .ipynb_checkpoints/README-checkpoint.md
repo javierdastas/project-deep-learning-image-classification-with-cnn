@@ -4,7 +4,7 @@
 ## Description
 Build a Convolutional Neural Network (CNN) model to classify images from a given dataset into predefined categories/classes.
 
-## Dataset Chosen for Project
+## Dataset Chosen for the Project
 Kaggle - Animals10: The second dataset contains about 28,000 medium quality animal images belonging to 10 categories: dog, cat, horse, spyder, butterfly, chicken, sheep, cow, squirrel, elephant. The link is [here](https://www.kaggle.com/datasets/alessiocorrado99/animals10/data).
 
 ## Presentation
