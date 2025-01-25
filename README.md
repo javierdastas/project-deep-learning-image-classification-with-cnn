@@ -1,4 +1,4 @@
-# Project | Deep Learning: Image Classification with CNN¶
+# Project | Deep Learning: Image Classification with CNN
 #### Collaborators: Javier Dastas, Paola Rivera
 
 ## Description
