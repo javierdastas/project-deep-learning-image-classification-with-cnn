@@ -49,7 +49,7 @@ This is the Pytorch version.
 - Unfreeze top layers to ajust using our dataset
 - Use a lower learning rate to reduce hard changes on the weights
 
-#### ***Analyze the results and select de best model for Deployment
+#### ***Analyze the results and select the best model for Deployment***
 
 ### **Part 6: Model Deployment**
 - Our 18-layer CNN model metrics are better ([see the notebook](cnn-group-model.ipynb)).
