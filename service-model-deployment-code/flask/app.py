@@ -15,7 +15,8 @@ app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # Limit file uploads to 16 MB
 
 # Load the TensorFlow/Keras model directly
-MODEL_PATH = "/srv/models/efficient_net_b0_v1.h5"  # Path to your saved model
+# MODEL_PATH = "/srv/models/efficient_net_b0_v1.h5"  # Path to your saved model
+MODEL_PATH = "/srv/models/my_cnn_model_v1.h5"  # Path to your saved model
 model = tf.keras.models.load_model(MODEL_PATH)
 
 CLASS_NAMES = ['dog', 'horse', 'elephant', 'butterfly', 'chicken', 'cat', 'cow', 'sheep', 'spider', 'squirrel']
@@ -93,6 +94,11 @@ def index():
 @app.errorhandler(413)
 def request_entity_too_large(error):
     return render_template("index.html", error="File size exceeds the maximum allowed size of 16 MB.")
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 # Run the Flask application
 if __name__ == "__main__":

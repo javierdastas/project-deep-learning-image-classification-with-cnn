@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Classification with NASNetLarge CNN Model</title>
+    <title>Image Classification with Deep Learning Custom CNN Model</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -26,19 +26,19 @@
             max-width: 500px;
             width: 100%;
             text-align: center;
-	    margin-botton: 4rem;
+            margin-bottom: 4rem;
         }
 
         h2 {
-	    color: #0f3027;
-	    margin-top: 0px;
-	    margin-bottom: 0px;
+            color: #0f3027;
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
 
         h3 {
-	    color: #1f4037;
-	    font-weight: 300;
-	    margin-top: 4px;
+            color: #1f4037;
+            font-weight: 300;
+            margin-top: 4px;
             margin-bottom: 2rem;
         }
 
@@ -99,13 +99,39 @@
         button:hover {
             background: #00c851;
         }
+
+        .about-icon {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            color: #99f2c8;
+            text-decoration: none;
+            background-color: #1f4037;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-icon:hover {
+            background-color: #2a5f40;
+            color: white;
+        }
     </style>
 </head>
 <body>
+    <!-- Help Icon/Button -->
+    <a href="{{ url_for('about') }}" class="about-icon" title="About" target="_blank">&#x2753;</a>
+
     <!-- Title Section -->
     <header style='text-align:center;'>
-        <h2>Image Classification with EfficientNetB0</h2>
-        <h3 class='last'>Convulational Neural Network Project</h3>
+        <h2>Image Classification</h2>
+        <h2>Using 18-layer Convolutional Neural Networks</h2>
+        <h3 class='last'>Deep Learning Project</h3>
     </header>
 
     <!-- Upload Form -->
@@ -127,7 +153,7 @@
                 {% for result in results %}
                     <li>
                         <strong>{{ result.filename }}</strong>: {{ result.class }} 
-                        (Confidence: {{ result.confidence | round(2) }})
+                        (Confidence: {{ (result.confidence * 100) | round(2) }}%)
                     </li>
                 {% endfor %}
             </ul>
@@ -171,11 +197,11 @@
 
         // Handle files and validate them
         function handleFiles(files) {
-            const currentFiles = Array.from(fileInput.files); // Archivos ya seleccionados
-            const allFiles = [...currentFiles, ...files]; // Combinar nuevos y existentes
+            const currentFiles = Array.from(fileInput.files); // Files already selected
+            const allFiles = [...currentFiles, ...files]; // Combine new and existing files
 
-            fileList.innerHTML = ''; // Limpiar la lista visible
-            const validFiles = []; // Archivos válidos
+            fileList.innerHTML = ''; // Clear visible list
+            const validFiles = []; // Valid files
 
             allFiles.forEach((file) => {
                 const listItem = document.createElement('li');
@@ -188,21 +214,18 @@
                     listItem.classList.add('invalid');
                     listItem.textContent += ' - Maximum files reached';
                 } else {
-                    validFiles.push(file); // Agregar archivo válido
-                    // listItem.textContent += ' - Valid';
+                    validFiles.push(file); // Add valid file
                 }
 
                 fileList.appendChild(listItem);
             });
 
-            // Crear un nuevo objeto DataTransfer con los archivos válidos
+            // Create a new DataTransfer object with valid files
             const dataTransfer = new DataTransfer();
             validFiles.forEach((file) => dataTransfer.items.add(file));
             fileInput.files = dataTransfer.files;
 
-            console.log(fileInput.files)
-
-            // Habilitar o deshabilitar el botón de envío
+            // Enable or disable the submit button
             submitButton.disabled = validFiles.length === 0;
         }
 
